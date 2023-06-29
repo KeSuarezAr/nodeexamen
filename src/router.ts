@@ -164,7 +164,7 @@ router.post("/cita", async (req: Request, res: Response) => {
 router.get("/cita/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
-    const cita = await Cita.findById(id).populate("cliente, doctor");
+    const cita = await Cita.findById(id).populate("cliente doctor");
     res.send(cita);
   } catch (error) {
     logger.error(error);
